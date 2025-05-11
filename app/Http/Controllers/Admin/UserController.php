@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -11,79 +10,92 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // Exibir a lista de usuários
     public function index()
     {
-        $users = User::paginate(20);
+        // Paginação para exibir 20 usuários por vez
+        $usuarios = User::paginate(20);
         
-        return view('admin.users.index', compact('users'));
+        return view('pages.usuarios', compact('usuarios'));
     }
 
+    // Exibir o formulário de criação de usuário
     public function create()
     {
-        return view('admin.users.create');
+        return view('pages.usuarios_create');
     }
 
-    public function store (StoreUserRequest $request)
+    // Criar um novo usuário
+    public function store(StoreUserRequest $request)
     {
-        
+        // Criação do usuário com dados validados
         User::create($request->validated());
 
+        // Redirecionamento com mensagem de sucesso
         return redirect()
-        ->route('users.index')
-        ->with('success', 'Usuário criado com sucesso!');
+            ->route('users.index')
+            ->with('success', 'Usuário criado com sucesso!');
     }
 
+    // Exibir o formulário para editar um usuário
     public function edit(string $id)
     {
-        // $user = User::where('id', '=', $id)->first();
-        // $user = User::where('id', $id)->first(); // ->firstOrFail();
-        if (!$user = User::find($id)) {
+        if (!$usuario = User::find($id)) {
             return redirect()->route('users.index')->with('message', 'Usuário não encontrado!');
         }
-        
-        return view('admin.users.edit', compact('user'));
+
+        return view('pages.usuarios_edit', compact('usuario'));
     }
 
+    // Atualizar os dados de um usuário
     public function update(UpdateUserRequest $request, string $id)
     {
-        if (!$user = User::find($id)) {
+        if (!$usuario = User::find($id)) {
             return back()->with('message', 'Usuário não encontrado!');
         }
+
         $data = $request->only('name', 'email');
-        if($request->password){
+        
+        // Se a senha for fornecida, atualizar a senha
+        if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }
 
-        $user->update($data);
+        $usuario->update($data);
 
+        // Redirecionamento com mensagem de sucesso
         return redirect()
-        ->route('users.index')
-        ->with('success', 'Usuário atualizado com sucesso!');
+            ->route('users.index')
+            ->with('success', 'Usuário atualizado com sucesso!');
     }
 
+    // Exibir as informações de um usuário específico
     public function show(string $id)
     {
-        if (!$user = User::find($id)) {
+        if (!$usuario = User::find($id)) {
             return back()->with('message', 'Usuário não encontrado!');
         }
-        
-        return view('admin.users.show', compact('user'));
+
+        return view('pages.usuarios_show', compact('usuario'));
     }
 
-
+    // Deletar um usuário
     public function destroy(string $id)
     {
-        if (!$user = User::find($id)) {
+        if (!$usuario = User::find($id)) {
             return back()->with('message', 'Usuário não encontrado!');
         }
-        if (Auth::user()->id === $user->id) {
+
+        // Impedir que o próprio usuário se exclua
+        if (Auth::user()->id === $usuario->id) {
             return back()->with('message', 'Você não pode deletar seu próprio usuário!');
         }
-        
-        $user->delete();
+
+        // Deletar o usuário
+        $usuario->delete();
 
         return redirect()
-        ->route('users.index')
-        ->with('success', 'Usuário deletado com sucesso!');
+            ->route('users.index')
+            ->with('success', 'Usuário deletado com sucesso!');
     }
 }

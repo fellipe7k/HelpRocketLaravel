@@ -189,7 +189,7 @@
                     <!-- Links de navegação na navbar -->
                     <div class="hidden md:flex ml-10 items-center space-x-4">
                         <a href="/dashboard" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                        <a href="/chamados" class="text-white px-3 py-2 rounded-md text-sm font-medium">Chamados</a>
+                        <a href="{{ route('chamados.index') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Chamados</a>
                         <a href="/estoque" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Estoque</a>
                         <a href="/usuarios" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Usuários</a>
                         <a href="/relatorios" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Relatórios</a>
@@ -245,7 +245,7 @@
             <div class="md:hidden hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="/dashboard" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-                    <a href="/chamados" class="text-white block px-3 py-2 rounded-md text-base font-medium">Chamados</a>
+                    <a href="{{ route('chamados.index') }}" class="text-white block px-3 py-2 rounded-md text-base font-medium">Chamados</a>
                     <a href="/estoque" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Estoque</a>
                     <a href="/usuarios" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usuários</a>
                     <a href="/relatorios" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Relatórios</a>

@@ -22,7 +22,7 @@ class ChamadoController extends Controller
             ->latest()
             ->paginate(10);
         
-        return view('pages.index', compact('chamados'));
+        return view('chamados.index', compact('chamados'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ChamadoController extends Controller
      */
     public function create(): View
     {
-        return view('pages.ChamadoCreate');
+        return view('chamados.create');
     }
 
     /**

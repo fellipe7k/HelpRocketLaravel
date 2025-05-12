@@ -74,9 +74,9 @@
                     <!-- Links de navegação na navbar -->
                     <div class="hidden md:flex ml-10 items-center space-x-4">
                         <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Chamados</a>
-                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Estoque</a>
-                        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Usuários</a>
+                        <a href="{{ route('chamados.index') }}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Chamados</a>
+                        <a href="{{ route('ativos.index') }}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Estoque</a>
+                        <a href="{{ route('users.index') }}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Usuários</a>
                         <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Relatórios</a>
                         <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Configurações</a>
                     </div>
@@ -133,7 +133,7 @@
                     <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
                     <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Chamados</a>
                     <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Estoque</a>
-                    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usuários</a>
+                    <a href="{{ route('users.index') }}" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usuários</a>
                     <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Relatórios</a>
                     <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Configurações</a>
                 </div>
@@ -152,8 +152,8 @@
                     <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
                 </div>
                 <button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md flex items-center transition-all">
-                    <a href="chamado.create"><i class="fas fa-plus mr-2"></i> Novo Chamado</a>
-                    {{-- <a href="{{ route('pages.chamado.create') }}"><i class="fas fa-plus mr-2"></i> Novo Chamado</a> --}}
+                    <a href="{{ route('chamados.create') }}"><i class="fas fa-plus mr-2"></i> Novo Chamado</a>
+                    
                 </button>
             </div>
         </div>

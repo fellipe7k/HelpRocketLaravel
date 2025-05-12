@@ -86,9 +86,9 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                     @if($chamado->status == 'aberto') bg-blue-100 text-blue-800
-                                    @elseif($chamado->status == 'em_andamento') bg-yellow-100 text-yellow-800
-                                    @elseif($chamado->status == 'resolvido') bg-green-100 text-green-800
-                                    @else bg-gray-100 text-gray-800
+                                    @elseif($chamado->status == 'em_andamento')
+                                    @elseif($chamado->status == 'resolvido')
+                                    @else
                                     @endif">
                                     {{ ucfirst(str_replace('_', ' ', $chamado->status)) }}
                                 </span>
@@ -96,9 +96,9 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                     @if($chamado->prioridade == 'baixa') bg-green-100 text-green-800
-                                    @elseif($chamado->prioridade == 'media') bg-blue-100 text-blue-800
-                                    @elseif($chamado->prioridade == 'alta') bg-yellow-100 text-yellow-800
-                                    @else bg-red-100 text-red-800
+                                    @elseif($chamado->prioridade == 'media')
+                                    @elseif($chamado->prioridade == 'alta')
+                                    @else
                                     @endif">
                                     {{ ucfirst($chamado->prioridade) }}
                                 </span>

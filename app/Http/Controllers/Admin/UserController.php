@@ -16,13 +16,13 @@ class UserController extends Controller
         // Paginação para exibir 20 usuários por vez
         $usuarios = User::paginate(20);
         
-        return view('pages.usuarios', compact('usuarios'));
+        return view('users.create', compact('usuarios'));
     }
 
     // Exibir o formulário de criação de usuário
     public function create()
     {
-        return view('pages.usuarios_create');
+        return view('users.create');
     }
 
     // Criar um novo usuário
